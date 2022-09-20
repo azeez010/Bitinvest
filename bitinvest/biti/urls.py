@@ -11,5 +11,6 @@ urlpatterns = [
     path('activate/<str:key_type>', views.activate_key, name="activate-key"),
     path('trade', views.trade, name="Trade"),
     path('partner', views.partner, name="Partner"),
-    path('invest', views.invest, name="Invest")
+    path('invest', views.invest, name="Invest"),
+    path('git-update', views.git_update, name="git-update"),
 ]

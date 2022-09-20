@@ -12,6 +12,7 @@ requests = "*"
 django-cloudinary-storage = "*"
 pillow = "*"
 django-mathfilters = "*"
+gitpython = "*"
 
 [dev-packages]
 

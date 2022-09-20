@@ -1,4 +1,6 @@
-import datetime
+import os, git
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from multiprocessing import parent_process
 from django.contrib.auth import update_session_auth_hash
 from django.shortcuts import render, redirect
@@ -14,6 +16,20 @@ from biti.helpers.utils import get_global_variables
 
 
 # Create your views here.
+@csrf_exempt
+def git_update(request):
+    if request.method == "POST":
+        os.chdir("/home/turkeyapp")
+        repo = git.Repo('./vipprotipsters')
+        origin = repo.remotes.origin
+        repo.create_head('master',
+        origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
+        #repo.heads.master.set_tracking_branch(origin.refs.master)
+        #all note
+        origin.pull()
+        # return 'success', 200
+        return JsonResponse({'success':'True'})
+
 @login_required
 def trade(request):
     try:
