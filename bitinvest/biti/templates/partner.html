@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% load mathfilters %}
+{% load humanize %}
+{% block title %}Partner{% endblock %}
+{% block content %}
+    {% include 'include/flash.html' %}
+    <div class="flex items-center justify-center h-screen ">
+        <div>
+            <div class="text-center bg-yellow-200 py-2 my-2 px-12 py-16">
+                <p class="text-center px-3 text-{{settings.theme}}-500">Why?</p>
+                <p class="text-red-500 my-2">FUND ACCOUNT WITH AT LEAST ${{ settings.partner }}</p>
+            </div>
+            <div class="text-center">
+                <a href="/payment/payments/create/Partner"><button class="bg-white inline-block text-center py-1 px-2 my-2">ADD FUNDS</button></a>
+            </div>
+            <p class="text-center px-3 my-2 text-{{settings.theme}}-200"><i>The ideal green pastures</i></p>
+        </div>
+{% endblock %}

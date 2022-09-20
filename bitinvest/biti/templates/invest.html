@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% load mathfilters %}
+{% load humanize %}
+{% block title %}Invest{% endblock %}
+{% block content %}
+    {% include 'include/flash.html' %}
+    <br><br>
+    <div class="h-full mx-2 md:mx-6 pb-20">
+        <div class="md:grid md:grid-cols-2 lg:grid-cols-3">
+            {% for invest_ in invest %}
+            <div>
+                <div class="flex mx-3 my-4">
+                    <div class="flex-shrink-0 my-2">
+                        <img src="{{ invest_.product.url }}" class="w-48 h-48 border-4 border-{{settings.theme}}-200" alt="product image">
+                    </div>    
+                    <div class="ml-2">
+                        <p class="text-center py-2 px-4 my-2 bg-green-300 text-green-800">COUNTRY: {{ invest_.investment_location.first.country.name|upper }}</p>
+                        <p class="text-center py-2 px-4 my-2 bg-green-300 text-green-800">Add ${{ invest_.price }}</p>
+                        <p class="text-center py-2 px-4 my-2 bg-green-300 text-green-800">Due Date: {{ invest_.start_range}} - {{ invest_.end_range }} days</p>
+                        <p class="text-center py-2 px-4 my-2 bg-green-300 text-green-800">Returns: $<span class="returnPrice">{{ invest_.investment_location.first.returns|mul:invest_.price|intcomma }}</span></p>
+                    </div>
+                </div>
+                    <div class="text-center">
+                        <select name="country_returns" class="overflow-clip returns text-center inline-block w-4/6 py-1 mx-16 px-4 my-2 bg-yellow-300 text-green-800">
+                            {% for country_return in invest_.investment_location.all %}
+                                <option value="{{ invest_.price }}|{{ country_return.returns }}">{{ country_return.country.name }} - X{{ country_return.returns }}</option>
+                            {% endfor %}
+                        </select>
+                        <a href="/payment/payments/create/Invest?id={{ invest_.id }}"><p class="text-center py-2 mx-16 px-4 my-2 bg-yellow-300 text-red-800">PROCEED TO PAYMENT</p></a>
+                    </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+<script>
+    
+    $(".returns").each(function(index, element){
+        $(this).change(function() {   
+            let [price, returns] = $(this).val().split("|");
+            let price_ = Number(price) * Number(returns)
+            $(".returnPrice").eq(index).text(price_.toLocaleString());   
+        })
+    })
+
+</script>
+{% endblock %}

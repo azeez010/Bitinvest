@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% load mathfilters %}
+{% load humanize %}
+{% block title %}Trade{% endblock %}
+{% block content %}
+    <div class="h-screen">
+        <div class="my-6">
+            <p class="text-center mx-2 md:mx-6 block py-2 px-4 my-2 bg-green-300 text-green-800" >Only {{ trades.count|apnumber }} Items available</p>
+        </div>
+        <div class="md:grid grid-cols-3">
+            {% for trade_ in trades %}
+                <div class="md:mx-8 p-2 md:p-4">
+                    <p class="text-center bg-{{settings.theme}}-300 text-white p-2 my-3">Available in {{ trade_.country.name }}</p>
+                    <img class="my-2 border-4 border-{{settings.theme}}-200" src="{{ trade_.product.url }}" alt="product image">
+                    <p class="text-center py-2 px-4 my-2 bg-green-300 text-green-800">Add ${{ trade_.price }}</p>
+                    <p class="text-center py-2 px-4 my-2 bg-green-300 text-green-800">Due Date: {{ trade_.start_range}} - {{ trade_.end_range }} days</p>
+                    <p class="text-center py-2 px-4 my-2 bg-green-300 text-green-800">Returns: ${{ trade_.returns|mul:trade_.price|intcomma }}</p>
+                    <a href="/payment/payments/create/Trade?id={{ trade_.id }}"><p class="text-center py-2 mx-16 px-4 my-2 bg-yellow-300 text-red-800">Join now</p></a>
+                </div>
+                {% endfor %}
+            </div>
+        {% endblock %}
+    </div>
+        

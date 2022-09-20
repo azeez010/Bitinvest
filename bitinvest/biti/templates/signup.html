@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sign up{% endblock %}
+{% block content %}
+    {% include 'include/flash.html' %}
+    <div class="flex items-center justify-center h-screen">
+        <div class="w-64 md:w-96">
+            <p class="text-gray-800 font-semibold mt-3 my-2 text-xl text-center">Register</p>
+            <form method="post" action="{% url 'signup-view' %}">
+                {% csrf_token %}
+                {{ sign_up.as_p }}
+                <input type="submit" class="text-white text-center w-full bg-{{ settings.theme }}-900 hover:bg-gray-800 px-2 py-2 my-2" value="CREATE ACCOUNT">
+            </form>
+            <div class="text-center">
+                <a class=" text-{{settings.theme }}-200 my-4" href="/login"><i><u>Already have an account? Login</u></i></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

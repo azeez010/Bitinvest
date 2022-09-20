@@ -1,0 +1,1 @@
+pipenv run py bitinvest/manage.py runserver

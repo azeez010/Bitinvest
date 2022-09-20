@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <div class="p-6">
+        <div class="text-center">
+            <div class="border-2 border-{{ settings.theme }}-900 inline-block p-3 rounded-lg" >
+                <p class="text-{{ settings.theme }}-900">OUR</p>
+                <P class="text-{{ settings.theme }}-900">PASTORS</P>
+            </div>
+            <p class="text-{{ settings.theme }}-200 my-6 text-lg md:text-xl"><i>the ideal greener pastures</i></p>
+        </div>
+        <a href="{% url 'Trade' %}">
+            <div class="bg-{{settings.theme }}-900 py-3 md:py-8 px-8 my-6 md:my-12 mx-8 text-center text-{{settings.theme }}-300 rounded-xl border-{{ settings.theme }}-200 border-2">
+                <p class="text-xl md:text-3xl"><u>Trade</u></p>
+                <p>Raise with Cannabis</p>
+            </div>
+        </a>
+        <a href="{% url 'Invest' %}">
+            <div class="bg-{{settings.theme }}-900 py-3 md:py-8 px-8 my-6 md:my-12 mx-8 text-center text-{{settings.theme }}-300 rounded-xl border-{{ settings.theme }}-200 border-2">
+                <p class="text-xl md:text-3xl"><u>Invest</u></p>
+                <p>Build fortune in Cannabis</p>
+            </div>
+        </a>
+        <a href="{% url 'Partner' %}">
+            <div class="bg-{{settings.theme }}-900 py-3 md:py-8 px-8 my-6 md:my-12 mx-8 text-center text-{{settings.theme }}-300 rounded-xl border-{{ settings.theme }}-200 border-2">
+                <p class="text-xl md:text-3xl"><u>Partner</u></p>
+                <p>Own a cannabis Farm</p>
+            </div>
+        </a>
+    
+        <div class="bg-{{settings.theme }}-200 p-2 my-6 md:my-12">
+            <div class="border-1 border-white p-2 m-1 text-center">
+                Join the few who are alreadly reap the fruit of the land!
+            </div>
+        </div>
+    </div>
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/63283c5654f06e12d895898f/1gdaind0e';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+﻿.careers-nav > * {
+    background-color: #4B4E53;
+    color: #fff;
+    display: block;
+    float: left;
+    margin-right: 2%;
+    width: 30%;
+    font-size: 1em;
+    margin-left: 177px;
+    margin-right: -55px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 599px) {
+    .careers-nav a {
+        display: block;
+        width: 85% !important;
+        float: right;
+        margin-left: unset;
+        margin-right: 21px;
+    }
+
+    .careers-nav > :last-child {
+        margin-right: 21px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .careers-nav > * {
+        margin-left: 110px !important;
+    }
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .careers-nav > * {
+        background-color: #4B4E53;
+        color: #fff;
+        display: block;
+        float: left;
+        margin-right: 2%;
+        width: 30%;
+        font-size: 1em;
+        margin-left: 148px;
+        margin-right: -55px;
+        margin-bottom: 30px;
+    }
+}

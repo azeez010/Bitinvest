@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% load mathfilters %}
+{% load humanize %}
+{% block title %}Activate key{% endblock %}
+{% block content %}
+{% include 'include/flash.html' %}
+    <div class="flex items-center justify-center h-screen ">
+        <div class="bg-{{settings.theme}}-800 p-6">
+            {% if key_type == "Trade" %}
+                <p class="text-center px-3 text-{{settings.theme}}-200">Trade wisely by joining funds with other starters</p>
+                <p class="text-center px-3 text-{{settings.theme}}-200">Do a possible 7x in 16 days</p>
+                <p class="text-red-500 text-center bg-yellow-200 py-2 my-2">You need a ref key</p>
+                <div class="text-center">
+                    <a class="text-center " href="/payment/payments/create/Kgs?kgs_var=trade_ref_price"><button class="bg-white inline-block text-center py-1 px-2 my-2">BUY KEY - ${{settings.trade_ref_price}}</button></a>
+                </div>
+            {% elif key_type == "Partner" %}
+                <p class="text-center px-3 text-{{settings.theme}}-200">JOIN THE BOARD</p>
+                <p class="text-center px-3 text-{{settings.theme}}-200">Acquire cannabis field across Africa and South America</p>
+                <p class="text-red-500 text-center bg-yellow-200 py-2 my-2">You need a ref key</p>
+                <div class="text-center">
+                    <a class="text-center " href="/payment/payments/create/Kgs?kgs_var=partner_ref_price"><button class="bg-white inline-block text-center py-1 px-2 my-2">BUY KEY - ${{settings.partner_ref_price}}</button></a>
+                </div>
+            {% elif key_type == "Invest" %}
+                <p class="px-3 text-{{settings.theme}}-200">Own a full consignment. Choose Selling Price. Avoid Groupon Delays.</p>
+                <p class="text-red-500 text-center bg-yellow-200 py-2 my-2">You need a ref key</p>
+                <div class="text-center">
+                    <a class="text-center " href="/payment/payments/create/Kgs?kgs_var=invest_ref_price"><button class="bg-white inline-block text-center py-1 px-2 my-2">BUY KEY - ${{settings.invest_ref_price}}</button></a>
+                </div>
+            {% endif %}
+            <p class="text-xl text-{{settings.theme}}-200 text-center mt-3">21+ only</p>
+        </div>
+    </div>
+{% endblock %}

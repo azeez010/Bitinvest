@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/image/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<style>
+    tbody tr:nth-child(odd) {
+        background-color: #ffffff;
+      }
+      
+      tbody tr:nth-child(even) {
+        background-color: #e4e4e4;
+      }
+</style>
+<body class=" bg-{{ settings.theme }}-600">
+    <div id="container" >
+        <header class="text-center block relative">
+            <div class="float-right my-2 mx-6">
+                {% if user.is_authenticated %}
+                    <a class="text-lg text-{{ settings.theme }}-200" href="/logout"><u>Logout</u></a>
+                {% else%}    
+                    <a class="text-lg text-{{ settings.theme }}-200" href="/login"><u>Login</u></a>
+                {% endif%}
+            </div>
+        </header>
+        <br>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <!-- <footer>
+            <br>
+            <br>
+            <hr>
+            <div>
+                <p class="text-center text-md md:text-xl my-4">Contact us: please send email to {{settings.email}}</p>
+            </div>
+        </footer> -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-environ = "*"
+django-countries = "*"
+urllib3 = "*"
+requests = "*"
+django-cloudinary-storage = "*"
+pillow = "*"
+django-mathfilters = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
