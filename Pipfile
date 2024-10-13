@@ -13,6 +13,7 @@ django-cloudinary-storage = "*"
 pillow = "*"
 django-mathfilters = "*"
 gitpython = "*"
+mysqlclient = "*"
 
 [dev-packages]
 

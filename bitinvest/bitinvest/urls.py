@@ -28,5 +28,5 @@ urlpatterns = [
 
 admin.site.site_header = settings.ADMIN_SITE_HEADER
 
-if settings.DEBUG:
+if not settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

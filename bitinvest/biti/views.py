@@ -19,8 +19,8 @@ from biti.helpers.utils import get_global_variables
 @csrf_exempt
 def git_update(request):
     if request.method == "POST":
-        os.chdir("/home/turkeyapp")
-        repo = git.Repo('./vipprotipsters')
+        os.chdir("/home/bitinvest")
+        repo = git.Repo('./bitinvest')
         origin = repo.remotes.origin
         repo.create_head('master',
         origin.refs.master).set_tracking_branch(origin.refs.master).checkout()
